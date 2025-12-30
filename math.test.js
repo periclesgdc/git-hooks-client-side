@@ -9,6 +9,6 @@ test('add should return the correct sum', () => {
 
 test('add should return correct sum with negative numbers', () => {
     const result = add(-1, -1);
-    assert.strictEqual(result, -4, 'Addition failed: expected -2');
+    assert.strictEqual(result, -2, 'Addition failed: expected -2');
 });
 
