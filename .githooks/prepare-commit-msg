@@ -4,16 +4,17 @@
 COMMIT_MSG_FILE=$1
 
 # Regex para validar o padrão: TIPO: Descrição
-# Tipos permitidos: FEAT, FIX, TASK, CHORE
-PATTERN="^(FEAT|FIX|TASK|CHORE): .+"
+# Tipos permitidos: feat, fix, task, chore
+PATTERN="^(feat|fix|task|chore): .+"
 
 COMMIT_MSG=$(cat $COMMIT_MSG_FILE)
 
 if [[ ! $COMMIT_MSG =~ $PATTERN ]]; then
   echo -e "\n\033[31m❌ ERRO: Mensagem de commit inválida!\033[0m"
   echo "-------------------------------------------------------"
-  echo "Sua mensagem deve seguir o padrão: TIPO: Descrição"
-  echo "Exemplo: FEAT: Adicionando integração com API de pagamentos"
+  echo "Sua mensagem deve seguir o padrão: \"TIPO: Descrição\""
+  echo "Exemplo: \"feat: Adicionando integração com API de pagamentos\""
   echo "-------------------------------------------------------"
   exit 1
 fi
+

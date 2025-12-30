@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "🔍 Verificando integridade do código antes do push..."
+
+# Substitua pelo comando de teste do seu projeto (ex: npm test, pytest, go test)
+npm test
+
+RESULT=$?
+
+if [ $RESULT -ne 0 ]; then
+  echo -e "\n\033[31m🚨 PUSH CANCELADO!\033[0m"
+  echo "Os testes unitários falharam. Corrija-os antes de tentar subir o código."
+  exit 1
+fi
+
+echo -e "\033[32m✅ Testes aprovados. Enviando para o remoto...\033[0m"
+exit 0
+
